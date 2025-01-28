@@ -1,100 +1,61 @@
-# PCC Admin Frontend Development
+1. StatusOfApplications.js
+This component handles displaying a table of all patent applications and their current status. It allows the user to:
 
-## **Overview**
-This project involves building a dynamic, responsive frontend tailored specifically for the PCC Admin role. It integrates state management with Redux, provides custom navigation for PCC Admins, and incorporates APIs to manage and display administrative data effectively.
+View a list of all submitted patent applications.
+View details of an application by clicking on the "View" button.
+Display each application with columns like Token Number, Patent Title, Submitted By, Designation, Department, Date-Time, and Status.
+Features:
 
----
+Displays a table with patent application details.
+Allows navigation to a detailed view of a selected application.
+The StatusOfApplicationData is used as mock data for patent applications.
+2. PccaStatusView.js
+This component displays detailed information about a selected patent application. It is displayed when a user clicks on the "View" button for an application.
 
-## **Features**
+Features:
 
-1. **Redux for PCC Admin State Management:**
-   - Manages state related to administrative tasks, user management, and system configurations.
-   - Ensures smooth and predictable state updates.
+Shows detailed information for a single patent application.
+Includes fields like "Title of Application," "Inventor Name," "Contact Information," "Funding Source," etc.
+3. ReviewAppComponent.js
+This component allows users to review filled patent applications. The user can:
 
-2. **PCC Admin-Specific Navigation:**
-   - Custom navigation bar designed for PCC Admin roles.
-   - Includes links to sections such as Dashboard, User Management, and Settings.
+Review the intellectual property (IP) filing form.
+The form contains several sections, such as Administrative Details, General Questions, IPR Ownership Questions, and Commercialization details.
+It fetches filled data (mock data in this case) and displays it in input fields for review.
+Features:
 
-3. **Administrative Dashboard:**
-   - Displays key data such as user statistics, system logs, and performance metrics.
-   - Integrates with APIs for real-time administrative data.
+Displays pre-filled data using fetchFilledData.
+Contains form sections such as the title of the application, inventor's details, and questions about the invention.
+The user can interact with buttons like "Review," "Download Form," and "Forward To Director."
+4. StatusOfApplicationData.js
+This file contains mock data for the patent applications, which is used by the StatusOfApplications component. Each patent application contains:
 
----
+Token Number: A unique identifier for the application.
+Patent Title: The title of the patent.
+Submitted By: The inventor who submitted the application.
+Designation: The role of the inventor.
+Department: The department under which the application is submitted.
+Date-Time: The date and time of submission.
+Status: The current status of the application (e.g., Under Review, Pending, Approved, etc.).
+The data is displayed in the table format in StatusOfApplications.js.
 
-## **Technologies Used**
+5. CSS Styling
+The project uses two CSS files to style the components:
 
-- **React**: Framework for building user interfaces.
-- **Mantine**: UI component library for responsive and accessible design.
-- **Redux Toolkit**: Efficiently manages the application’s state.
-- **json-server** (optional): Used as a mock API for local testing.
+StatusOfApplications.css: Styles the StatusOfApplications table, buttons, and layout.
+ReviewComponent.css: Styles the patent review form, ensuring a clean and organized layout for each section.
 
----
+Functional Flow
+Viewing Patent Applications:
 
-## **Setup and Installation**
+When the user visits the page, a table of applications is displayed.
+Each application has a "View" button, which, when clicked, opens the detailed view of the selected application.
+Reviewing an Application:
 
-1. **Clone the Repository:**
-   ```bash
-   git clone <repository-url>
-   cd <project-folder>
-   ```
+In the ReviewAppComponent, users can see all the details filled in for an application.
+Users can review the data, and the form includes input fields for sections like the title, inventor name, and description.
+Navigating Between Views:
 
-2. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Run the Development Server:**
-   ```bash
-   npm run dev
-   ```
-
-4. **Mock API Setup (Optional):**
-   - Install `json-server` globally:
-     ```bash
-     npm install -g json-server
-     ```
-   - Create a `db.json` file with sample administrative data.
-   - Start the mock API server:
-     ```bash
-     json-server --watch db.json --port 3001
-     ```
-
----
-
-## **Folder Structure**
-
-```
-src/
-├── components/
-│   ├── common/
-│   │   └── PCCAdminNavbar.jsx
-│   └── pages/
-│       └── PCCAdminDashboard.jsx
-├── layouts/
-│   └── PCCAdminLayout.jsx
-├── store/
-│   ├── index.js
-│   ├── adminSlice.js
-│   └── dataSlice.js
-└── main.jsx
-```
-
----
-
-## **How to Run**
-
-1. Clone the repository.
-2. Install dependencies with `npm install`.
-3. Start the development server with `npm run dev`.
-4. (Optional) Start a mock API server with `json-server` for testing.
-
----
-
-## **Conclusion**
-This project highlights the ability to:
-- Build a role-specific frontend tailored for PCC Admins.
-- Use Redux for efficient state management and data handling.
-- Design user-friendly navigation and dashboards using Mantine components.
-
-The result is a robust, scalable, and responsive interface designed for the PCC Admin role.
+From the list of applications, the user can navigate to the detailed view of a specific application by clicking "View."
+In the detailed view, a back button allows the user to return to the applications list.
 
