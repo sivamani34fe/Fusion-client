@@ -9,6 +9,7 @@ Features:
 Displays a table with patent application details.
 Allows navigation to a detailed view of a selected application.
 The StatusOfApplicationData is used as mock data for patent applications.
+
 2. PccaStatusView.js
 This component displays detailed information about a selected patent application. It is displayed when a user clicks on the "View" button for an application.
 
@@ -16,6 +17,7 @@ Features:
 
 Shows detailed information for a single patent application.
 Includes fields like "Title of Application," "Inventor Name," "Contact Information," "Funding Source," etc.
+
 3. ReviewAppComponent.js
 This component allows users to review filled patent applications. The user can:
 
@@ -27,6 +29,7 @@ Features:
 Displays pre-filled data using fetchFilledData.
 Contains form sections such as the title of the application, inventor's details, and questions about the invention.
 The user can interact with buttons like "Review," "Download Form," and "Forward To Director."
+
 4. StatusOfApplicationData.js
 This file contains mock data for the patent applications, which is used by the StatusOfApplications component. Each patent application contains:
 
